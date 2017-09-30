@@ -16,7 +16,7 @@ namespace dnget
             Console.WriteLine($"\nDownloading File \"{fileName}\" to {Environment.CurrentDirectory}\nfrom \"{remoteUri}\"\n");
             myWebClient.DownloadFileCompleted += Completed;
             myWebClient.DownloadProgressChanged += ProgressChanged;
-            myWebClient.DownloadFileAsync(new Uri(remoteUri), fileName);
+            myWebClient.DownloadFileTaskAsync(new Uri(remoteUri), fileName).Wait();
             Console.ReadKey();
         }
 
